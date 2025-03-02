@@ -1,5 +1,5 @@
-import AppRoutes from "./Navigation/AppRoutes";
-
+import React from 'react'
+import AppRoutes from "./navigation/AppRoutes";
 function App() {
   return (
     <AppRoutes/>

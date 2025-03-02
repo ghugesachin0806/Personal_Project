@@ -1,20 +1,83 @@
-import React from "react";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
-    <div>
-    <div className="w-auto h-screen bg-gray-900 text-white p-4">
-      <h2 className="text-xl font-bold mb-4">Sidebar</h2>
-      <ul className="space-y-2">
-        <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">Home</li>
-        <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">Questions</li>
-        <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">Tags</li>
-        <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">Users</li>
-        <li className="hover:bg-gray-700 p-2 rounded cursor-pointer">Settings</li>
+    <div className=" w-52 h-screen bg-gray-500 text-white p-5 top-0 left-0">
+      <ul className="space-y-4">
+        <li>
+          <NavLink
+            to="home"
+            className={({ isActive }) =>
+              isActive ? 'bg-gray-600 p-3 cursor-pointer' : 'hover:bg-gray-700 p-3 cursor-pointer'
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="post-question"
+            className={({ isActive }) =>
+              isActive ? 'bg-gray-600 p-3 cursor-pointer' : 'hover:bg-gray-700 p-3 cursor-pointer'
+            }
+          >
+            Post-Question
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="question/:id"
+            className={({ isActive }) =>
+              isActive ? 'bg-gray-600 p-3 cursor-pointer' : 'hover:bg-gray-700 p-3 cursor-pointer'
+            }
+          >
+            Answers
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/comments"
+            className={({ isActive }) =>
+              isActive ? 'bg-gray-600 p-3 cursor-pointer' : 'hover:bg-gray-700 p-3 cursor-pointer'
+            }
+          >
+            Comments
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/settings"
+            className={({ isActive }) =>
+              isActive ? 'bg-gray-600 p-3 cursor-pointer' : 'hover:bg-gray-700 p-3 cursor-pointer'
+            }
+          >
+            Settings
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/posts"
+            className={({ isActive }) =>
+              isActive ? 'bg-gray-600 p-3 cursor-pointer' : 'hover:bg-gray-700 p-3 cursor-pointer'
+            }
+          >
+            Posts
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/logout"
+            className={({ isActive }) =>
+              isActive ? 'bg-gray-600 p-3 cursor-pointer' : 'hover:bg-gray-700 p-3 cursor-pointer'
+            }
+          >
+            Logout
+          </NavLink>
+        </li>
       </ul>
     </div>
-    </div>
   );
-};
+}
 
 export default Sidebar;

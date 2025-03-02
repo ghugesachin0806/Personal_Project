@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const connectDB = require("./db");
 const dotenv = require("dotenv");
 
@@ -13,6 +14,14 @@ const { logRequest } = require("./Middlewares/logger");
 const app = express();
 dotenv.config();
 const port = process.env.PORT;
+
+
+// Enable CORS
+app.use(cors({
+  origin: "http://localhost:5173",  // Adjust if needed
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 //body parse middleware
 app.use(express.json());

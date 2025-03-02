@@ -1,10 +1,25 @@
-import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom';
+import React from "react";
+import { Outlet, Navigate, useLocation } from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
 
 const ProtectedRoutes = () => {
-    const isAuthenticated = localStorage.getItem("token");
+  const isAuthenticated = localStorage.getItem("token");
+  const location = useLocation();
 
-    return isAuthenticated?<Outlet/> : <Navigate to='/'/>
-}
+  if (!isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
 
-export default ProtectedRoutes
+  const showNavbar = ["/profile", "/test"].some((path) =>
+    location.pathname.startsWith(path)
+  );
+
+  return (
+    <>
+      {showNavbar && <Navbar />}
+      <Outlet />
+    </>
+  );
+};
+
+export default ProtectedRoutes;
