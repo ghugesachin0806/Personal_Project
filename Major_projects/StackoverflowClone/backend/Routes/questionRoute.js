@@ -14,6 +14,8 @@ router.post("/", jwtAuthMiddleware, async (req, res) => {
       author: req.user._id,
     });
 
+    console.log(newQuestion);
+    
     await newQuestion.save();
     res.status(201).json(newQuestion);
   } catch (err) {

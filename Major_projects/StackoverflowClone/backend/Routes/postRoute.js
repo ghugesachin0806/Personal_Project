@@ -6,7 +6,7 @@ const router = express.Router();
 // Create Post
 router.post("/", jwtAuthMiddleware, async (req, res) => {
   const { title, body, tags } = req.body;
-  const userId = req.user.id;
+  const userId = req.user._id;
 
   if (!title || !body) {
     return res.status(400).json({ error: "Title and body are required" });
